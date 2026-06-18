@@ -71,7 +71,7 @@
         <a href="#contact" style="padding:8px 14px;color:#D2CFC6;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;transition:color .25s;" style-hover="color:#EFEDE6;">Contact</a>
       </div>
       <div style="flex:1;"></div>
-      <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;height:38px;padding:0 18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;background:#EFEDE6;color:#0E0E0C;border:1.25px solid transparent;text-decoration:none;transition:transform .35s,background .35s;" style-hover="background:#d8d6cd;transform:translateY(-1px);">Start a project →</a>
+      <a href="https://calendly.com/alisaid_design/intro" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;height:38px;padding:0 18px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;background:#EFEDE6;color:#0E0E0C;border:1.25px solid transparent;text-decoration:none;transition:transform .35s,background .35s;" style-hover="background:#d8d6cd;transform:translateY(-1px);">Start a project →</a>
     </nav>
   </div>
 
@@ -311,7 +311,7 @@
           <p data-reveal data-reveal-delay="0.08" style="font-size:20px;line-height:1.45;color:#D2CFC6;max-width:36ch;margin:0;">Start a project, ask a question, or just <em style="font-style:normal;color:#EFEDE6;font-weight:500;">say hi.</em> Replies within a working day.</p>
           <div data-reveal data-reveal-delay="0.16" style="display:flex;flex-direction:column;gap:24px;">
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
-              <a href="&#109;ailto:contact.alisaid&#64;gmail.com" style="display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 22px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;border:1.25px solid #EFEDE6;color:#EFEDE6;text-decoration:none;transition:transform .35s,background .35s,color .35s;" style-hover="background:#EFEDE6;color:#0E0E0C;transform:translateY(-1px);">Start a project <span>→</span></a>
+              <a href="https://calendly.com/alisaid_design/intro" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 22px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;border:1.25px solid #EFEDE6;color:#EFEDE6;text-decoration:none;transition:transform .35s,background .35s,color .35s;" style-hover="background:#EFEDE6;color:#0E0E0C;transform:translateY(-1px);">Start a project <span>→</span></a>
             </div>
             <div style="display:flex;flex-direction:column;gap:12px;padding-top:24px;border-top:1px solid rgba(239,237,230,0.12);">
               <a href="&#109;ailto:contact.alisaid&#64;gmail.com" style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:#EFEDE6;letter-spacing:0.18em;text-transform:uppercase;padding:8px 0;text-decoration:none;transition:padding-left .3s;" style-hover="padding-left:8px;"><span>email <span style="color:#918F88;">/</span></span><span style="color:#D2CFC6;font-weight:400;letter-spacing:0.06em;text-transform:none;">contact.alisaid&#64;gmail.com</span></a>
@@ -572,8 +572,10 @@ class Component extends DCLogic {
       opacity: '0', transition: 'width .5s, height .5s, opacity .3s', pointerEvents: 'none'
     });
     cursor.appendChild(dot);
-    document.body.appendChild(cursor);
+    // mount on <html> (outside the zoomed <body>) so pointer coords aren't scaled by the 1.25 page zoom
+    document.documentElement.appendChild(cursor);
     document.body.style.cursor = 'none';
+    document.documentElement.style.cursor = 'none';
     this._cursorEl = cursor;
 
     let mx = -200, my = -200, cx = -200, cy = -200, raf = null;
